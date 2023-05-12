@@ -178,6 +178,10 @@ button[data-type="inverted"]:focus-visible {
   color: var(--Faded-Bright-Red);
 }
 
+.button[data-shadow="none"] {
+  box-shadow: none;
+}
+
 /* navigation */
 
 .primary-header {
@@ -258,6 +262,98 @@ button[data-type="inverted"]:focus-visible {
     display: none;
   }
 }
+/* footer */
+.primary-footer-wrapper {
+  display: grid;
+  gap: var(--size-700);
+  grid-template-areas: "form" "nav" "logo-social";
+}
+
+@media (min-width: 50em) {
+  .primary-footer-wrapper {
+    grid-template-areas: "logo-social nav form";
+  }
+
+  .primary-footer-logo-social {
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+}
+
+.primary-footer-logo-social {
+  grid-area: logo-social;
+
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 3rem;
+}
+
+.primary-footer-nav {
+  grid-area: nav;
+}
+
+.primary-footer-form {
+  grid-area: form;
+
+  display:grid;
+  align-content: space-between;
+}
+
+.primary-footer form{
+  display:flex;
+  gap:var(--size-200);
+}
+
+input:where([type="text"], [type="email"]) {
+  border-radius: 100vw;
+  border: 0;
+  padding: var(--size-300) var(--size-300);
+}
+
+@media (max-width: 50em) {
+  .primary-footer-wrapper > * {
+    margin-inline: auto;
+  }
+}
+
+/*  footer navigation */
+
+.footer-nav {
+  columns: 2;
+}
+
+.footer-nav a {
+  color: var(--Very-Light-Gray);
+}
+
+.footer-nav a:is(:hover, :focus) {
+  color: var(--Bright-Red);
+}
+
+.footer-copyright {
+  color: var(--Very-Light-Gray);
+}
+
+/* social list*/
+.social-list {
+  display: flex;
+  gap: var(--size-600);
+}
+
+.social-list img {
+  width: var(--size-600);
+}
+
+@media (min-width: 50em) {
+  .social-list {
+    gap: var(--size-300);
+  }
+  .social-list img {
+    width: var(--size-500);
+  }
+}
 
 /* cta */
 
@@ -267,9 +363,9 @@ button[data-type="inverted"]:focus-visible {
   background-repeat: no-repeat;
 }
 
-@media (min-width:50em){
-  .cta{
-    text-align:left;
+@media (min-width: 50em) {
+  .cta {
+    text-align: left;
   }
 }
 
@@ -278,7 +374,6 @@ button[data-type="inverted"]:focus-visible {
     background-image: url("images/bg-simplify-section-mobile.svg");
     background-position: left;
   }
-  
 }
 
 .vertical-align-center {
@@ -291,11 +386,9 @@ button[data-type="inverted"]:focus-visible {
 
 @media (min-width: 50em) {
   .justify-self-end-md {
-    justify-self:end;
+    justify-self: end;
   }
 }
-
-
 
 /* Utlity classes */
 
@@ -415,4 +508,3 @@ button[data-type="inverted"]:focus-visible {
 :where(.flow :not(:first-child)) {
   margin-top: var(--flow-spacer, 2.5rem);
 }
-
